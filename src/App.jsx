@@ -1,14 +1,13 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import RegisterForm from './Components/RegisterForm'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-     <h1>This is gonna be my social media app</h1>
+     <div  className="app-container">
+      <RegisterForm/>
+     </div>
     </>
   )
 }
