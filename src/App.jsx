@@ -5,7 +5,7 @@ function App() {
 
   return (
     <>
-     <div  className="app-container">
+     <div className="w-full h-full flex bg-gradient-to-r from-[#4CCCE6] to-[#0EB39E] items-center justify-center">
       <RegisterForm/>
      </div>
     </>
