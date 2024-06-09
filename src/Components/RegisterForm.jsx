@@ -2,17 +2,17 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 
-const initalFormData = {
-  username: "",
-  email: "",
-  password: "",
-};
-
 const RegisterForm = () => {
+  const initalFormData = {
+    username: "",
+    email: "",
+    password: "",
+  };
+
   const {
     register,
     handleSubmit,
-    formState: { errors, isValid },
+    formState: { errors },
   } = useForm({
     defaultValues: initalFormData,
   });
@@ -27,6 +27,7 @@ const RegisterForm = () => {
         console.error(error);
         alert("Registration failed. Please try again.");
       });
+    localStorage.setItem("username", formData.username);
     console.log("SUBMITTED FORM", formData);
   };
 
