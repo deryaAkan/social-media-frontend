@@ -1,10 +1,17 @@
 import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+
+const initalFormData = {
+  username: "",
+  email: "",
+  password: "",
+};
 
 const RegisterForm = () => {
-  const [formData, setFormData] = useState({
-    username: "",
-    email: "",
-    password: "",
+  const [formData, setFormData] = useState();
+
+  const { register, handleSubmit } = useForm({
+    defaultValues: initalFormData,
   });
 
   const handleChange = (e) => {
@@ -15,8 +22,7 @@ const RegisterForm = () => {
     });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const onFormSubmit = (formData) => {
     console.log(formData);
   };
 
@@ -29,18 +35,23 @@ const RegisterForm = () => {
       <div className="flex justify-start py-5 flex-wrap sm:gap-5">
         <div className="w-full flex flex-col items-center relative text-gray-700 text-left gap-10 sm:gap-2">
           <h3 className="text-xl">Create Account</h3>
-          <form className="flex flex-col gap-10 text-sm sm:gap-2">
+          <form
+            className="flex flex-col gap-10 text-sm sm:gap-2"
+            onSubmit={handleSubmit(onFormSubmit)}
+          >
             <input
               className="text-sm max-w-fit rounded-sm border border-[#0EB39E] hover:border-[#4CCCE6] py-2 my-2 px-4"
               type="text"
               id="username"
               placeholder="Enter username"
+              {...register("username")}
             />
             <input
               className="text-sm max-w-fit rounded-sm border border-[#0EB39E] hover:border-[#4CCCE6] py-2 my-2 px-4"
               type="email"
               id="email"
               placeholder="Enter email"
+              {...register("email")}
             />
 
             <input
@@ -48,8 +59,12 @@ const RegisterForm = () => {
               type="password"
               id="password"
               placeholder="Enter password"
+              {...register("password")}
             />
-            <button className="bg-gradient-to-r from-[#0EB39E] to-[#4CCCE6] font-bold text-white text-sm py-2 px-8 rounded hover:bg-[#23A6F0]">
+            <button
+              className="bg-gradient-to-r from-[#0EB39E] to-[#4CCCE6] font-bold text-white text-sm py-2 px-8 rounded hover:bg-[#23A6F0]"
+              type="submit"
+            >
               Sign Up
             </button>
           </form>
