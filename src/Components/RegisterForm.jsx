@@ -4,6 +4,12 @@ import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
+const initalFormData = {
+  username: "",
+  email: "",
+  password: "",
+};
+
 const RegisterForm = () => {
   let history = useHistory();
   const {
@@ -13,12 +19,6 @@ const RegisterForm = () => {
   } = useForm({
     defaultValues: initalFormData,
   });
-
-  const initalFormData = {
-    username: "",
-    email: "",
-    password: "",
-  };
 
   const onFormSubmit = (formData) => {
     axios
