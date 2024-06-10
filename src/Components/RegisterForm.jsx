@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 const RegisterForm = () => {
   const initalFormData = {
@@ -115,12 +116,9 @@ const RegisterForm = () => {
       </div>
       <div className="flex flex-col text-[#737373] px-4">
         <p>Alreay have an acoount?</p>
-        <a
-          href="./LoginForm.jsx"
-          className="text-[#0EB39E] cursor-pointer underline"
-        >
+        <Link to="/login" className="text-[#0EB39E] cursor-pointer underline">
           Login
-        </a>
+        </Link>
       </div>
     </div>
   );

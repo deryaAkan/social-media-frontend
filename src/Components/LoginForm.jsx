@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
+
 const LoginForm = () => {
   return (
     <>
@@ -29,12 +31,12 @@ const LoginForm = () => {
             </button>
             <div className="flex flex-col text-[#737373] px-4 py-4 items-center justify-center">
               <p>Don't have an acoount yet?</p>
-              <a
-                href="./RegisterForm.jsx"
+              <Link
+                to="/register"
                 className="text-[#0EB39E] cursor-pointer underline"
               >
                 Sign Up
-              </a>
+              </Link>
             </div>
           </div>
         </div>
