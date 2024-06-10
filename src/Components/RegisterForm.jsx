@@ -20,7 +20,7 @@ const RegisterForm = () => {
   const onFormSubmit = (formData) => {
     axios
       .post("http://localhost:8080/auth/register", formData)
-      .then((response) => {
+      .then(() => {
         alert("Registration successful! Please log in.");
       })
       .catch((error) => {
@@ -115,7 +115,12 @@ const RegisterForm = () => {
       </div>
       <div className="flex flex-col text-[#737373] px-4">
         <p>Alreay have an acoount?</p>
-        <a className="text-[#0EB39E] cursor-pointer underline">Login</a>
+        <a
+          href="./LoginForm.jsx"
+          className="text-[#0EB39E] cursor-pointer underline"
+        >
+          Login
+        </a>
       </div>
     </div>
   );
