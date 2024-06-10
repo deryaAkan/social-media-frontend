@@ -1,15 +1,11 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 const RegisterForm = () => {
-  const initalFormData = {
-    username: "",
-    email: "",
-    password: "",
-  };
-
+  let history = useHistory();
   const {
     register,
     handleSubmit,
@@ -17,6 +13,12 @@ const RegisterForm = () => {
   } = useForm({
     defaultValues: initalFormData,
   });
+
+  const initalFormData = {
+    username: "",
+    email: "",
+    password: "",
+  };
 
   const onFormSubmit = (formData) => {
     axios
@@ -29,6 +31,7 @@ const RegisterForm = () => {
         alert("Registration failed. Please try again.");
       });
     localStorage.setItem("username", formData.username);
+    history.push("/");
     console.log("SUBMITTED FORM", formData);
   };
 
@@ -36,7 +39,7 @@ const RegisterForm = () => {
     <div className="flex flex-col justify-center flex-wrap text-[#737373] sm:gap-5 shadow-lg py-10 px-20 bg-white">
       <div className="flex flex-col gap-3">
         <h2 className="font-bold text-2xl text-[#0EB39E]">Crowdie</h2>
-        <p>Discover your crowd on Crowdie !</p>
+        <p className="italic">Discover your crowd on Crowdie !</p>
       </div>
       <div className="flex justify-start py-5 flex-wrap sm:gap-5">
         <div className="w-full flex flex-col items-center relative text-gray-700 text-left gap-10 sm:gap-2">
